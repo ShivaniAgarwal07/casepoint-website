@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+title: Blog
+---
+
+<section>
+  <h1>Our Blogs</h1>
+  <ul>
+    {% for blog in contentful.blogs %}
+      <li style="margin-bottom: 2rem;">
+        <h2>{{ blog.fields.title }}</h2>
+        <p>{{ blog.fields.shortDescription }}</p>
+        <small>By {{ blog.fields.author }} on {{ blog.fields.date }}</small>
+        {% if blog.fields.blogImage %}
+          <img src="https:{{ blog.fields.blogImage.fields.file.url }}" width="300" alt="Blog Image">
+        {% endif %}
+      </li>
+    {% endfor %}    
+  </ul>
+</section>

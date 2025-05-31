@@ -1,0 +1,21 @@
+{
+  "name": "casepoint-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve",
+  "build": "eleventy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.0",
+    "@contentful/rich-text-html-renderer": "^17.0.0",
+    "axios": "^1.9.0",
+    "dotenv": "^16.5.0"
+  }
+}

@@ -1,0 +1,59 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+
+{# Banner Section #}
+<section>
+  {% for banner in contentful.banner %}
+    <h1>{{ banner.fields.title }}</h1>
+    <p>{{ banner.fields.subtitle }}</p>
+    {% if banner.fields.backgroundImage %}
+    <img src="https:{{ banner.fields.backgroundImage.fields.file.url }}" alt="Banner Image" 
+    style="max-width: 60%; height: auto; display: block; margin: 0 auto;" />
+    {% endif %}
+
+    <a href="{{ banner.fields.buttonLink }}">{{ banner.fields.buttonText }}</a>
+  {% endfor %}
+</section>
+
+<hr>
+
+{# Blog Listing #}
+<section>
+  <h2>Latest Blogs</h2>
+  <ul>
+    {% for blog in contentful.blogs %}
+      <li>
+        <h3>{{ blog.fields.title }}</h3>
+        <p>{{ blog.fields.shortDescription }}</p>
+        <small>By {{ blog.fields.author }} on {{ blog.fields.date }}</small>
+        {% if blog.fields.blogImage %}
+          <img src="https:{{ blog.fields.blogImage.fields.file.url }}" width="200" />
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<hr>
+
+{# Text Modules #}
+<section>
+  <h2>Highlights</h2>
+  {% for mod in contentful.modules %}
+  
+    {% set direction = "row" %}
+    {% if mod.fields.imagePosition == "Right" %}
+      {% set direction = "row-reverse" %}
+    {% endif %}
+
+    <div style="display: flex; flex-direction: {{ direction }}; gap: 2rem; align-items: center; margin-bottom: 2rem;">
+      <img src="https:{{ mod.fields.image.fields.file.url }}" width="150" />
+      <div>
+        <h3>{{ mod.fields.title }}</h3>
+        <p>{{ mod.fields.description }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
