@@ -3,6 +3,9 @@ export default function (eleventyConfig) {
     return new Date().getFullYear();
   });
 
+  
+  eleventyConfig.addPassthroughCopy("src/css");
+
   return {
     dir: {
       input: "src",

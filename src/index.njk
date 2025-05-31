@@ -4,56 +4,72 @@ title: Home
 ---
 
 {# Banner Section #}
-<section>
+<section class="banner">
   {% for banner in contentful.banner %}
-    <h1>{{ banner.fields.title }}</h1>
-    <p>{{ banner.fields.subtitle }}</p>
-    {% if banner.fields.backgroundImage %}
-    <img src="https:{{ banner.fields.backgroundImage.fields.file.url }}" alt="Banner Image" 
-    style="max-width: 60%; height: auto; display: block; margin: 0 auto;" />
-    {% endif %}
-
-    <a href="{{ banner.fields.buttonLink }}">{{ banner.fields.buttonText }}</a>
+    <div class="banner-content">
+      <div class="left">
+        <h1>{{ banner.fields.title }}</h1>
+        <p>{{ banner.fields.subtitle }}</p>
+        <a href="{{ banner.fields.buttonLink }}" class="btn">{{ banner.fields.buttonText }}</a>
+      </div>
+      <div class="right">
+        {% if banner.fields.backgroundImage %}
+        <img src="https:{{ banner.fields.backgroundImage.fields.file.url }}" alt="Banner Image" />
+        {% endif %}
+      </div>
+    </div>
   {% endfor %}
 </section>
+
 
 <hr>
 
 {# Blog Listing #}
-<section>
-  <h2>Latest Blogs</h2>
-  <ul>
-    {% for blog in contentful.blogs %}
-      <li>
+<section class="blogs">
+  <h2 class="section-title">Latest Blogs</h2>
+
+  {% for blog in contentful.blogs %}
+    <div class="blog-card">
+      <div class="blog-text">
         <h3>{{ blog.fields.title }}</h3>
-        <p>{{ blog.fields.shortDescription }}</p>
-        <small>By {{ blog.fields.author }} on {{ blog.fields.date }}</small>
-        {% if blog.fields.blogImage %}
-          <img src="https:{{ blog.fields.blogImage.fields.file.url }}" width="200" />
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+        <p class="blog-author">By {{ blog.fields.author }}</p>
+        <p class="blog-date">Created At: {{ blog.fields.date }}</p>
+        <p class="blog-description">{{ blog.fields.shortDescription }}</p>
+      </div>
+
+      {% if blog.fields.blogImage %}
+        <div class="blog-image">
+          <img src="https:{{ blog.fields.blogImage.fields.file.url }}" alt="Blog Image" />
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
 </section>
+
 
 <hr>
 
 {# Text Modules #}
-<section>
-  <h2>Highlights</h2>
+<section class="blogs">
+  <h2 class="section-title">Highlights</h2>
+
   {% for mod in contentful.modules %}
-  
     {% set direction = "row" %}
     {% if mod.fields.imagePosition == "Right" %}
       {% set direction = "row-reverse" %}
     {% endif %}
 
-    <div style="display: flex; flex-direction: {{ direction }}; gap: 2rem; align-items: center; margin-bottom: 2rem;">
-      <img src="https:{{ mod.fields.image.fields.file.url }}" width="150" />
-      <div>
+    <div class="blog-card" style="flex-direction: {{ direction }};">
+      <div class="blog-text">
         <h3>{{ mod.fields.title }}</h3>
-        <p>{{ mod.fields.description }}</p>
+        <p class="blog-description">{{ mod.fields.description }}</p>
+      </div>
+
+      <div class="blog-image">
+        <img src="https:{{ mod.fields.image.fields.file.url }}" alt="Module Image" />
       </div>
     </div>
   {% endfor %}
 </section>
+
+

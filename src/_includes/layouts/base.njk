@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title | default("Casepoint CMS Site") }}</title>
-
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
     <header>
+      <div class="logo">Casepoint.</div>
       <nav>
-        <a href="/">Home</a> |
+        <a href="/">Home</a>
         <a href="/blog/">Blog</a>
       </nav>
     </header>
@@ -18,9 +19,9 @@
       {{ content | safe }}
     </main>
 
-    <footer>
-      <p>© {{ "" | year }} Casepoint. All rights reserved.</p>
-
+    <footer class="site-footer">
+      <div class="footer-left">Casepoint.</div>
+      <div class="footer-right">© {{ "" | year }} Casepoint. All rights reserved.</div>
     </footer>
   </body>
 </html>
