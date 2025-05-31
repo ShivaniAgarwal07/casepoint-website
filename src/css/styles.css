@@ -15,10 +15,11 @@ header {
   align-items: center;
 }
 
-.logo {
+.logo a {
+  text-decoration: none;
+  color: #ffffff;
   font-weight: bold;
   font-size: 1.7rem;
-  color: #ffffff;
 }
 
 nav a {
