@@ -59,7 +59,8 @@ title: Home
       {% set direction = "row-reverse" %}
     {% endif %}
 
-    <div class="blog-card" style="flex-direction: {{ direction }};">
+    <div class="blog-card {% if mod.fields.imagePosition == 'Right' %}reverse{% endif %}">
+
       <div class="blog-text">
         <h3>{{ mod.fields.title }}</h3>
         <p class="blog-description">{{ mod.fields.description }}</p>

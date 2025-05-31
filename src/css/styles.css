@@ -189,5 +189,108 @@ nav a:hover {
 }
 
 
+/* ----------- Responsive Styles ----------- */
+
+
+@media (max-width: 768px) {
+
+  .banner-content {
+    flex-direction: column;
+    text-align: left;
+    
+  }
+
+  .banner .left {
+    padding-right: 0;
+    padding-bottom: 1rem;
+  }
+
+  .banner .left h1 {
+    font-size: 1.8rem;
+  }
+
+  .banner .left p {
+    font-size: 1rem;
+  }
+
+  .blog-card {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: left;
+  }
+
+  .blog-card.reverse {
+    flex-direction: column !important;
+  }
+
+  .blog-image {
+    flex: unset;
+    margin-bottom: 1rem;
+  }
+
+  .blog-image img {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .blog-text {
+    flex: unset;
+    padding-left: 0;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    text-align: left;
+    gap: 1rem;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+
+  .logo a {
+    font-size: 1.5rem;
+  }
+
+  .banner {
+    padding: 2rem 1rem;
+  }
+
+  .banner .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .blog-card {
+    padding: 1.5rem;
+  }
+
+  .blog-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .blog-description {
+    font-size: 0.95rem;
+  }
+
+  .site-footer {
+    padding: 1rem;
+  }
+
+  .footer-left {
+    font-size: 1.5rem;
+  }
+
+  .footer-right {
+    font-size: 0.9rem;
+  }
+}
+
+
+
 
 
