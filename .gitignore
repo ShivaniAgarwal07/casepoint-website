@@ -1,7 +1,16 @@
-
+# ignore node modules file
 node_modules/
+
+# environment variables
 .env
+
+# dist and build 
 dist/
 build/
 
+# system files
+.DS_Store
+
+# logs
+npm-debug.log*
 
